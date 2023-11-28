@@ -6,7 +6,7 @@
 <br>
 
 <figure >
-  <img src="media/ui-1_chat.jpg" width="600" />
+  <img src="media/ui-1_chat.jpg" width="800" />
   <figcaption>The Main Chat User Interface.</figcaption>
 </figure>
 
@@ -15,6 +15,8 @@
 <br>
 
 <h2 align="center">Features of this Frontend</h2>
+
+<br>
 
 <ul>
   <li><strong>User Interface.</strong> Designed with CSS for a more appealing and tidy appearance.</li>
@@ -31,7 +33,7 @@
 <br>
 
 <figure>
-  <img src="media/ui-3_completion.jpg" width="600" />
+  <img src="media/ui-3_completion.jpg" width="800" />
   <figcaption>The Completion Interface. A Perfect Playground for Experimenting.</figcaption>
 </figure>
 
@@ -40,6 +42,8 @@
 <br>
 
 <h2 align="center">Planned functions</h2>
+
+<br>
 
 <ul>
   <li><strong>Multilingualism (in progress).</strong> It will be possible to select the language via a drop-down menu. So far, language files for English and German are available. More languages will follow (support is welcome).</li>
@@ -54,14 +58,19 @@
 
 <h2 align="center">Longterm Roadmap or "Wishes"</h2>
 
+<br>
+
 <ul>
-  <li><strong>Implement Interface for Whisper.cpp for STT</strong></li>
-  <li><strong>Implement Logic to Utilize Bert.cpp for efficient embeddings</strong></li>
-  <li><strong>Waiting for a .cpp TTS Solution ...</strong></li>
-  <li><strong>An additional View for Finetuning </strong></li>
-  <li><strong>Simulated Multi- or Group-Chat </strong></li>
+  <li><strong>Speech to Text.</strong>Implement Interface for Whisper.cpp for STT</li>
+  <li><strong>Vector Database.</strong>Implement Logic to Utilize Bert.cpp for efficient embeddings</li>
+  <li><strong>Text to Speech.</strong>Waiting for a .cpp/ggml ecosystem TTS Solution ...</li>
+  <li><strong>Extend UI.</strong>An additional View for Finetuning </li>
+  <li><strong>Group-Chat.</strong>Simulated Multi- or Group-Chat </li>
 </ul>
-<h6 align="center">For those wishes I think I'll need some advices and help. Feel free to contact me if you're interested in working together on those things.</h6>
+
+<br>
+
+For those wishes I think I'll need some advices and help. Feel free to contact me if you're interested in working together on those things.
 
 
 <br>
@@ -77,15 +86,10 @@
 <h3 align="left">Dialog Script</h3>
 
 1. If you are familiar with `git clone`, I don't need to explain the process to you.
-
 2. If you are not familiar with git, then download this repository as a ZIP file: [Click here](https://github.com/mounta11n/plusplus-caMalL/archive/refs/heads/master.zip)
-
-
-2. Unzip the ZIP file and then go to the unzipped folder.
-
-3. Find a file named 'start-server.sh' and select the file with the right mouse button.
-
-4. Go to -> "open with" -> Terminal (iTerm, xterm, ..) - that's it!
+3. Unzip the ZIP file and then go to the unzipped folder.
+4. Find a file named 'start-server.sh' and select the file with the right mouse button.
+5. Go to -> "open with" -> Terminal (iTerm, xterm, ..) - that's it!
 
 <br>
 
@@ -94,12 +98,10 @@ The following dialog window will help you to start the backend:
 <br>
 <br>
 
-  <img src="media/tui-1_main.jpg" width="400" />
-  <img src="media/tui-2_options.jpg" width="400" />
-
+  <img src="media/tui-1_main.jpg" width="600" />
+  <img src="media/tui-2_options.jpg" width="600" />
 <br>
-
-  <img src="media/tui-3_load-config.jpg" width="400" />
+  <img src="media/tui-3_load-config.jpg" width="600" />
 
 <br>
 <br>
@@ -107,22 +109,25 @@ The following dialog window will help you to start the backend:
 
 <h3 align="left">Zenity Script</h3>
 
-<h6 align="left">In case you are afraid of spending too long in the terminal, there is a solution for you too:</h6>
+_In case you are afraid of spending too long in the terminal, there is a solution for you too:_
 
-- Instead of searching for 'start-server.sh', search for 'zenity-server.sh'
 
-- The next steps are the same as for dialog.
+<li><strong>Zenity.</strong>Instead of searching for 'start-server.sh', search for 'zenity-server.sh'</li>
+<li><strong>Repeat.</strong>The next steps are the same as for dialog</li>
 
-(But seriously now: I think it's really cool to create a GUI based dialog interaction in a quick way using just a shell script. However, I **strongly** (!) recommend staying with the TUI based "dialog" for now. The dialog script is much more powerful and has good error handling and much more. Zenity is not ready yet.)
+**But seriously now.** I think it's really cool to create a GUI based dialog interaction in a quick way using just a shell script. However, I strongly recommend staying with the TUI based "dialog" for now. The dialog script is much more powerful and has good error handling and much more. Zenity is not ready yet.
 
-- The following window will be your companion:
+The following window will be your companion:
 
 <br>
 <br>
 
 
-  <img src="media/gui-1_main.jpg" height="400" />
-  <img src="media/gui-2_options.jpg" height="400" />
+  <img src="media/gui-1_main.jpg" width="600" />
+
+<br>
+  
+  <img src="media/gui-2_options.jpg" width="600" />
 
 <br>
 <br>
@@ -185,7 +190,7 @@ The following dialog window will help you to start the backend:
 
 <h3 align="left">Docs</h3>
 
-Important: Even I am trying to keep this repo up to date and syncing with the origin, I highly recommend to consider ggerganov's repo, if you are not only for the frontend here. Another is, as of now (28th October 2023) there is an open pull request which I made yesterday to merge against ggerganov's original llama.cpp
+Important: Even I am trying to keep this repo up to date and syncing with the origin, I highly recommend to consider ggerganov's repo, if you are not only for the frontend here. Another point is, as of now (28th November 2023) there is an open pull request which I made yesterday to merge against ggerganov's original llama.cpp
 <h6>In case it will be merged successfully,</h6> then for the future you have to think of this/my repo here as something very experimental and unstable. It would become a playground for quick and dirty testings and tinkering, for features I want to have, but am too lazy to fullfill the **highest** coding quality requierements that you can find and expect in ggerganov's llama.cpp
 Also note that I am welcoming everyone who would like to hack and tinker on this repo and dump interesting ideas. So summa summarum: In case my PR will be merged successfully, than this repo will intentionally become **unstable**.
 
