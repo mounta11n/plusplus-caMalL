@@ -42,7 +42,7 @@
 <h2 align="center">Planned functions</h2>
 
 <ul>
-  <li><strong>Multilingualism (in progress).</strong> It will be possible to select the language via a drop-down menu. So far, language files for English and German are available. Further languages will follow (support is welcome).</li>
+  <li><strong>Multilingualism (in progress).</strong> It will be possible to select the language via a drop-down menu. So far, language files for English and German are available. More languages will follow (support is welcome).</li>
   <li><strong>Dark mode.</strong> A dark mode for an eye-friendly view is currently in progress.</li>
   <li><strong>Low stimulus mode.</strong> A low-stimulus and low-contrast mode is being planned for people who need it.</li>
   <li><strong>Templates for UI options.</strong> Templates for the values of the user interface options (sampler etc.), such as deterministic template, creative template, balanced template etc., are planned.</li>
@@ -76,20 +76,20 @@
 
 <h3 align="left">Dialog Script</h3>
 
-1. Wenn du dich mit `git clone` auskennst, muss ich dir den Prozess nicht erklären.
+1. If you are familiar with `git clone`, I don't need to explain the process to you.
 
-2. Solltest du dich mit git nicht auskennen, dann lade dir dieses Repository als ZIP Datei herunter: [Klick hier](https://github.com/mounta11n/plusplus-caMalL/archive/refs/heads/master.zip)
+2. If you are not familiar with git, then download this repository as a ZIP file: [Click here](https://github.com/mounta11n/plusplus-caMalL/archive/refs/heads/master.zip)
 
 
-2. Entpacke die ZIP Datei und gehe daraufhin in den entpackten Ordner.
+2. Unzip the ZIP file and then go to the unzipped folder.
 
-3. Finde eine Datei namens 'start-server.sh' und wähle die Datei mit der rechten Maustaste aus.
+3. Find a file named 'start-server.sh' and select the file with the right mouse button.
 
-4. Gehe auf -> "öffnen mit" -> Terminal (iTerm, xterm, ..) – das war's
+4. Go to -> "open with" -> Terminal (iTerm, xterm, ..) - that's it!
 
 <br>
 
-Das folgende Dialog-Fenster hilft dir, das Backend zu starten:
+The following dialog window will help you to start the backend:
 
 <br>
 <br>
@@ -107,13 +107,15 @@ Das folgende Dialog-Fenster hilft dir, das Backend zu starten:
 
 <h3 align="left">Zenity Script</h3>
 
-<h6 align="left">Für den Fall, dass du Angst davor haben solltest, dich zu lange im Terminal aufzuhalten, gibt es auch für dich eine Lösung:</h6>
+<h6 align="left">In case you are afraid of spending too long in the terminal, there is a solution for you too:</h6>
 
-- Anstatt nach 'start-server.sh' zu suchen, suchst du nach 'zenity-server.sh'
+- Instead of searching for 'start-server.sh', search for 'zenity-server.sh'
 
-- Die weiteren Schritte sind wie bei Dialog auszuführen.
+- The next steps are the same as for dialog.
 
-- Dich wird folgendes Fenster begleiten:
+(But seriously now: I think it's really cool to create a GUI based dialog interaction in a quick way using just a shell script. However, I **strongly** (!) recommend staying with the TUI based "dialog" for now. The dialog script is much more powerful and has good error handling and much more. Zenity is not ready yet.)
+
+- The following window will be your companion:
 
 <br>
 <br>
