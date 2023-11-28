@@ -5,35 +5,40 @@
 <br>
 <br>
 
-
-<p float="left">
-  <img src="media/ui-1_chat.jpg" height="500" />
-</p>
-
-
+<figure >
+  <img src="media/ui-1_chat.jpg" width="600" />
+  <figcaption>The Main Chat User Interface.</figcaption>
+</figure>
 
 <br>
+<br>
+<br>
+
 <h2 align="center">Features of this Frontend</h2>
 
 <ul>
   <li><strong>User Interface.</strong> Designed with CSS for a more appealing and tidy appearance.</li>
-  <li><strong>CSS-Auslagerung.</strong> The CSS has been moved to a separate file to simplify maintenance.</li>
+  <li><strong>Well Known Style.</strong> My styling inspiration was the OpenAI playground. A lot of people are already used to this design.</li>
+  <li><strong>CSS outsourcing.</strong> The CSS has been moved to a separate file to simplify maintenance.</li>
   <li><strong>Dropdown-Menus.</strong> Drop-down menus for predefined prompt formats and system prompts have been added.</li>
   <li><strong>Modular structure.</strong> Prompt formats and system prompts are stored in separate files, which makes editing very easy.</li>
   <li><strong>More freedom.</strong> Prompt formats and system prompts are independent of each other and can therefore be combined as required.</li>
   <li><strong>Easy access for beginners.</strong> A script was created that utilizes "dialog" to compose the command for the server.</li>
   <li><strong>Configuration management.</strong> The script offers the option of saving and loading configurations.</li>
 </ul>
-<br>
-<br>
-
-<p float="right">
-  <img src="media/tui-3_load-config.jpg" height="500" />
-</p>
 
 <br>
 <br>
+
+<figure>
+  <img src="media/ui-3_completion.jpg" width="600" />
+  <figcaption>The Completion Interface. A Perfect Playground for Experimenting.</figcaption>
+</figure>
+
 <br>
+<br>
+<br>
+
 <h2 align="center">Planned functions</h2>
 
 <ul>
@@ -43,10 +48,31 @@
   <li><strong>Templates for UI options.</strong> Templates for the values of the user interface options (sampler etc.), such as deterministic template, creative template, balanced template etc., are planned.</li>
 </ul>
 
+<br>
+<br>
+<br>
+
+<h2 align="center">Longterm Roadmap or "Wishes"</h2>
+
+<ul>
+  <li><strong>Implement Interface for Whisper.cpp for STT</strong></li>
+  <li><strong>Implement Logic to Utilize Bert.cpp for efficient embeddings</strong></li>
+  <li><strong>Waiting for a .cpp TTS Solution ...</strong></li>
+  <li><strong>An additional View for Finetuning </strong></li>
+  <li><strong>Simulated Multi- or Group-Chat </strong></li>
+</ul>
+<h6 align="center">For those wishes I think I'll need some advices and help. Feel free to contact me if you're interested in working together on those things.</h6>
+
 
 <br>
 <br>
+<br>
+
 <h2 align="center">How to start</h2>
+
+<br>
+<br>
+<br>
 
 <h3 align="left">Dialog Script</h3>
 
@@ -62,22 +88,20 @@
 4. Gehe auf -> "öffnen mit" -> Terminal (iTerm, xterm, ..) – das war's
 
 <br>
+
 Das folgende Dialog-Fenster hilft dir, das Backend zu starten:
 
 <br>
 <br>
 
-<p float="left">
-  <img src="media/tui-1_main.jpg" height="400" />
+  <img src="media/tui-1_main.jpg" width="400" />
   <img src="media/tui-2_options.jpg" width="400" />
-</p>
 
 <br>
 
-<p float="right">
-  <img src="media/tui-3_load-config.jpg" height="500" />
-</p>
+  <img src="media/tui-3_load-config.jpg" width="400" />
 
+<br>
 <br>
 <br>
 
@@ -94,27 +118,80 @@ Das folgende Dialog-Fenster hilft dir, das Backend zu starten:
 <br>
 <br>
 
-<p float="left">
+
   <img src="media/gui-1_main.jpg" height="400" />
   <img src="media/gui-2_options.jpg" height="400" />
-</p>
 
 <br>
 <br>
+<br>
+<br>
 
-<h2 align="left">Some More Impressions</h2>
-
-
+<h2 align="center">Some More Impressions</h2>
 
 <br>
 <br>
+<br>
+
+<h2 align="left">Further Options and Grammar</h2>
+<br>
+  <img src="media/ui-2_grammar.jpg" width="600" />
+
+<br>
+<br>
+<br>
+
+<h2 align="left">Prompt Formats</h2>
+<br>
+  <img src="media/ui-5_prompt-formats.jpg" width="600" />
+
+<br>
+<br>
+<br>
+
+<h2 align="left">System Prompts</h2>
+<br>
+  <img src="media/ui-6_system-prompts.jpg" width="600" />
+
+<br>
+<br>
+<br>
+
+<h2 align="left">UI Elements</h2>
+<br>
+  <img src="media/ui-7_reset.jpg" width="600" />
+
+<br>
+<br>
+<br>
+
+<h2 align="left">AI Response</h2>
+<br>
+  <img src="media/ui-8_response.jpg" width="600" />
+
+<br>
+<br>
+<br>
+
+<h2 align="left">Multimodality</h2>
+<br>
+  <img src="media/ui-9_multimodal.jpg" width="600" />
+
+<br>
+<br>
+<br>
+
 <h3 align="left">Docs</h3>
+
+Important: Even I am trying to keep this repo up to date and syncing with the origin, I highly recommend to consider ggerganov's repo, if you are not only for the frontend here. Another is, as of now (28th October 2023) there is an open pull request which I made yesterday to merge against ggerganov's original llama.cpp
+<h6>In case it will be merged successfully,</h6> then for the future you have to think of this/my repo here as something very experimental and unstable. It would become a playground for quick and dirty testings and tinkering, for features I want to have, but am too lazy to fullfill the **highest** coding quality requierements that you can find and expect in ggerganov's llama.cpp
+Also note that I am welcoming everyone who would like to hack and tinker on this repo and dump interesting ideas. So summa summarum: In case my PR will be merged successfully, than this repo will intentionally become **unstable**.
+
+Therefore if you are looking for support, I would recommend to referr to the original llama.cpp, with first considering the following:
 
 - [General Guide](https://github.com/ggerganov/llama.cpp#readme/)
 - [main](./examples/main/README.md)
 - [server](./examples/server/README.md)
-- [jeopardy](./examples/jeopardy/README.md)
-- [BLIS](./docs/BLIS.md)
 - [Performance troubleshooting](./docs/token_generation_performance_tips.md)
 - [GGML tips & tricks](https://github.com/ggerganov/llama.cpp/wiki/GGML-Tips-&-Tricks)
 - [GBNF grammars](./grammars/README.md)
