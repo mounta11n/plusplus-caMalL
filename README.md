@@ -185,7 +185,7 @@ The following dialog window will help you to start the backend:
 
 <h3 align="left">Docs</h3>
 
-Important: Even I am trying to keep this repo up to date and syncing with the origin, I highly recommend to consider ggerganov's repo, if you are not only for the frontend here. Another is, as of now (28th October 2023) there is an open pull request which I made yesterday to merge against ggerganov's original llama.cpp
+Important: Even I am trying to keep this repo up to date and syncing with the origin, I highly recommend to consider ggerganov's repo, if you are not only for the frontend here. Another point is, as of now (28th November 2023) there is an open pull request which I made yesterday to merge against ggerganov's original llama.cpp
 <h6>In case it will be merged successfully,</h6> then for the future you have to think of this/my repo here as something very experimental and unstable. It would become a playground for quick and dirty testings and tinkering, for features I want to have, but am too lazy to fullfill the **highest** coding quality requierements that you can find and expect in ggerganov's llama.cpp
 Also note that I am welcoming everyone who would like to hack and tinker on this repo and dump interesting ideas. So summa summarum: In case my PR will be merged successfully, than this repo will intentionally become **unstable**.
 
