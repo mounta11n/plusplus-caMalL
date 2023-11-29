@@ -543,11 +543,11 @@
     margin-top: 10px;
     display: flex;
     width: 100%;
-    /*gap: 1em;  Fügt einen Abstand zwischen den Elementen hinzu */
+    /*gap: 1em;  Adds a space between the elements, but I couldn't see any change */
   }
 
   .json-schema-controls > * {
-    flex: 1; /* Teilt den verfügbaren Platz gleichmäßig auf */
+    flex: 1; /* Divides the available space evenly */
   }
 
   pre code {
@@ -584,14 +584,14 @@
     }
 
   footer a {
-    color: #333; /* Farbe des Links */
-    text-decoration: none; /* Keine Unterstreichung */
-    font-weight: bold; /* Fettgedruckt */
+    color: #333; /* Color of the link */
+    text-decoration: none; /* No underlining */
+    font-weight: bold; /* Bold print */
   }
 
   footer a:hover {
-    color: #555; /* Farbe des Links beim Hovern */
-    text-decoration: underline; /* Unterstreichung beim Hovern */
+    color: #555; /* Color of the link when hovering */
+    text-decoration: underline; /* Underlining when hovering */
   }
 
   .mode-chat textarea[name=prompt] {
