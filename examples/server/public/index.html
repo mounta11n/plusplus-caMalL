@@ -1057,68 +1057,23 @@ async function updateSystemLanguage(event) {
       `;
     }
 
-////
 
 
-//     // snapping of the slider to indicate 'disabled'
-//     document.addEventListener('DOMContentLoaded', (event) => {
-//   // define the temp slider and snap value 1.0
-//   const temperatureSlider = document.querySelector('input[name="temperature"]');
-//   const snapValue = 1.0; // value at which the slider should engage
-
-//   // Add an event listener that is triggered by 'input' event
-//   temperatureSlider.addEventListener('input', (e) => {
-//     const value = parseFloat(e.target.value);
-//     const step = parseFloat(e.target.step);
-//     const snapRange = step * 10; // define range around the snap value within which snapping takes place
-
-//     // check if slider value is within the snap range
-//     if (value >= snapValue - snapRange && value <= snapValue + snapRange) {
-//       // set the slider value to the snap value
-//       e.target.value = snapValue;
-//     }
-//   });
-// });
-
-
-
-// document.addEventListener('DOMContentLoaded', (event) => {
-//   const temperatureSlider = document.querySelector('input[name="temperature"]');
-//   const temperatureValueDisplay = document.getElementById('temperature-value'); // Ersetze dies durch den tatsächlichen ID-Selektor deines Wert-Displays
-//   const snapValue = 1.0;
-//   const snapRange = temperatureSlider.step * 10;
-
-//   temperatureSlider.addEventListener('input', (e) => {
-//     let value = parseFloat(e.target.value);
-//     const step = parseFloat(e.target.step);
-
-//     if (value >= snapValue - snapRange && value <= snapValue + snapRange) {
-//       value = snapValue; // Setze den Wert auf den Snap-Wert
-//       e.target.value = value; // Aktualisiere den Slider-Wert
-//     }
-
-//     // Aktualisiere den angezeigten Wert
-//     if (temperatureValueDisplay) {
-//       temperatureValueDisplay.textContent = value.toFixed(2); // Zeige den Wert mit zwei Dezimalstellen an
-//     }
-//   });
-// });
-
+// snapping of the slider to indicate 'disabled'
 document.addEventListener('DOMContentLoaded', (event) => {
-  // Definiere ein Objekt, das die Snap-Werte und Bereiche für jeden Slider enthält
+  // define an object that contains snap values and ranges for each slider
   const snapSettings = {
     temperature: { snapValue: 1.0, snapRangeMultiplier: 6 },
     min_p: { snapValue: 0.05, snapRangeMultiplier: 2 },
     top_p: { snapValue: 1.0, snapRangeMultiplier: 4 },
     tfs_z: { snapValue: 1.0, snapRangeMultiplier: 4 },
     typical_p: { snapValue: 1.0, snapRangeMultiplier: 4 },
-    repeat_penalty: { snapValue: 1.18, snapRangeMultiplier: 4 },
-
-    // n_predict: { snapValue: 385, snapRangeMultiplier: 3 },
-    // Füge hier weitere Slider mit ihren Einstellungen hinzu
+    repeat_penalty: { snapValue: 1.0, snapRangeMultiplier: 4 },
+    presence_penalty: { snapValue: 0.0, snapRangeMultiplier: 4 },
+    frequency_penalty: { snapValue: 0.0, snapRangeMultiplier: 4 },
   };
 
-  // Füge jedem Slider einen Event-Listener hinzu
+  // add an event listener for each slider
   Object.keys(snapSettings).forEach(sliderName => {
     const slider = document.querySelector(`input[name="${sliderName}"]`);
     const settings = snapSettings[sliderName];
@@ -1130,42 +1085,19 @@ document.addEventListener('DOMContentLoaded', (event) => {
       const valueDisplay = document.getElementById(`${e.target.name}-value`);
 
       if (value >= settings.snapValue - snapRange && value <= settings.snapValue + snapRange) {
-        value = settings.snapValue; // Setze den Wert auf den Snap-Wert
-        e.target.value = value; // Aktualisiere den Slider-Wert
+        value = settings.snapValue; // set value to the snap value
+        e.target.value = value; // update the slider value
       }
 
-      // Aktualisiere den angezeigten Wert
+      // update the displayed value
       if (valueDisplay) {
-        valueDisplay.textContent = value.toFixed(2); // Zeige den Wert mit zwei Dezimalstellen an
+        valueDisplay.textContent = value.toFixed(2); // display value with two decimal places
       }
     });
   });
 });
 
-// document.addEventListener('DOMContentLoaded', (event) => {
-//   const temperatureSlider = document.querySelector('input[name="temperature"]');
-//   const snapValue = 1.0;
-//   const snapRange = temperatureSlider.step * 5;
 
-//   temperatureSlider.addEventListener('input', (e) => {
-//     let value = parseFloat(e.target.value);
-//     const step = parseFloat(e.target.step);
-//     const temperatureValueDisplay = document.getElementById(`${e.target.name}-value`);
-
-//     if (value >= snapValue - snapRange && value <= snapValue + snapRange) {
-//       value = snapValue; // Setze den Wert auf den Snap-Wert
-//       e.target.value = value; // Aktualisiere den Slider-Wert
-//     }
-
-//     // Aktualisiere den angezeigten Wert
-//     if (temperatureValueDisplay) {
-//       temperatureValueDisplay.textContent = value.toFixed(2); // Zeige den Wert mit zwei Dezimalstellen an
-//     }
-//   });
-// });
-
-
-/////
 
     render(h(App), document.querySelector('#container'));
   </script>
