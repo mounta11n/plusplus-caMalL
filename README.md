@@ -2,6 +2,8 @@
 
 <h1 align="center">Custom Frontend for llama.cpp Server</h1>
 
+**This is a fork, but it adresses only the UI of the server. This work will maybe become merged against the upstream. In that case this repo will eventually become to something like a playground for quick and dirty experiments and tinkerings, while the merged frontend at ggerganov/llama.cpp will be a stable and well maintained version**
+
 <br>
 <br>
 
@@ -48,7 +50,7 @@
 <ul>
   <li><strong>Multilingualism (in progress).</strong> It will be possible to select the language via a drop-down menu. So far, language files for English and German are available. More languages will follow (support is welcome).</li>
   <li><strong>Dark mode.</strong> A dark mode for an eye-friendly view is currently in progress.</li>
-  <li><strong>Low stimulus mode.</strong> A low-stimulus and low-contrast mode is being planned for people who need it.</li>
+  <li><strong>Low stimulus mode.</strong> A low-stimulus <del>and low-contrast</del> mode (not more after reading <a href="https://blog.pope.tech/2022/11/08/color-contrast-accessibility-requirements-explained/">this</a>) is being planned for people who need it.</li>
   <li><strong>Templates for UI options.</strong> Templates for the values of the user interface options (sampler etc.), such as deterministic template, creative template, balanced template etc., are planned.</li>
 </ul>
 
@@ -109,7 +111,7 @@ The following dialog window will help you to start the backend:
 
 <h3 align="left">Zenity Script</h3>
 
-_In case you are afraid of spending too long in the terminal, there is a solution for you too:_
+_In case you are afraid of spending too much time in the terminal, there is a solution for you too:_
 
 
 <li><strong>Zenity.</strong>Instead of searching for 'start-server.sh', search for 'zenity-server.sh'</li>
