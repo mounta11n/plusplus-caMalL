@@ -31,10 +31,10 @@
     })
 
     const params = signal({
-      n_predict: 358,
+      n_predict: -1, //358,
       temperature: 1.0, // adapt to optimized min-p requierements
-      repeat_last_n: 256, // 0 = disable penalty, -1 = context size
-      repeat_penalty: 1.18, // 1.0 = disabled
+      repeat_last_n: 0, // 0 = disable penalty, -1 = context size
+      repeat_penalty: 1.0, // 1.0 = disabled
       top_k: 0, // <= 0 to use vocab size
       top_p: 1.0, // 1.0 = disabled
       min_p: 0.05, // 0 = disabled
@@ -568,12 +568,33 @@ async function updateSystemLanguage(event) {
         }
       }
 
+      // const FloatField = ({ label, max, min, name, step, value }) => {
+      //   return html`
+      //     <div>
+      //       <label for="${name}">${label}</label>
+      //       <input type="range" id="${name}" min="${min}" max="${max}" step="${step}" name="${name}" value="${value}" oninput=${updateParamsFloat} />
+      //       <span>${value}</span>
+      //     </div>
+      //   `
+      // };
+
+      // const FloatField = ({ label, max, min, name, step, value }) => {
+      //   const spanId = `${name}-value`; // unique ID for the span element
+      //   return html`
+      //     <div>
+      //       <label for="${name}">${label}</label>
+      //       <input type="range" id="${name}" min="${min}" max="${max}" step="${step}" name="${name}" value="${value}" oninput=${updateParamsFloat} />
+      //       <span id="${spanId}">${value}</span> <!-- use the unique ID here -->
+      //     </div>
+      //   `;
+      // };
+
       const FloatField = ({ label, max, min, name, step, value }) => {
         return html`
           <div>
             <label for="${name}">${label}</label>
             <input type="range" id="${name}" min="${min}" max="${max}" step="${step}" name="${name}" value="${value}" oninput=${updateParamsFloat} />
-            <span>${value}</span>
+            <span id="${name}-value">${value}</span>
           </div>
         `
       };
@@ -583,7 +604,7 @@ async function updateSystemLanguage(event) {
           <div>
             <label for="${name}">${label}</label>
               <input type="range" id="${name}" min="${min}" max="${max}" step="${step}" name="${name}" value="${value}" oninput=${updateParamsInt} />
-            <span>${value}</span>
+              <span id="${name}-value">${value}</span>
           </div>
         `
       };
@@ -782,7 +803,7 @@ async function updateSystemLanguage(event) {
             ${IntField({ label: "Prediction", max: 2048, min: -1, step: 16, name: "n_predict", value: params.value.n_predict, })}
             ${FloatField({ label: "Min-P sampling", max: 1.0, min: 0.0, name: "min_p", step: 0.01, value: params.value.min_p })}
             ${FloatField({ label: "Repetition Penalty", max: 2.0, min: 0.0, name: "repeat_penalty", step: 0.01, value: params.value.repeat_penalty })}
-            ${FloatField({ label: "Temperature", max: 1.5, min: 0.0, name: "temperature", step: 0.01, value: params.value.temperature })}
+            ${FloatField({ label: "Temperature", max: 2.0, min: 0.0, name: "temperature", step: 0.01, value: params.value.temperature })}
           </fieldset>
 
           <details>
@@ -1035,6 +1056,116 @@ async function updateSystemLanguage(event) {
         </div>
       `;
     }
+
+////
+
+
+//     // snapping of the slider to indicate 'disabled'
+//     document.addEventListener('DOMContentLoaded', (event) => {
+//   // define the temp slider and snap value 1.0
+//   const temperatureSlider = document.querySelector('input[name="temperature"]');
+//   const snapValue = 1.0; // value at which the slider should engage
+
+//   // Add an event listener that is triggered by 'input' event
+//   temperatureSlider.addEventListener('input', (e) => {
+//     const value = parseFloat(e.target.value);
+//     const step = parseFloat(e.target.step);
+//     const snapRange = step * 10; // define range around the snap value within which snapping takes place
+
+//     // check if slider value is within the snap range
+//     if (value >= snapValue - snapRange && value <= snapValue + snapRange) {
+//       // set the slider value to the snap value
+//       e.target.value = snapValue;
+//     }
+//   });
+// });
+
+
+
+// document.addEventListener('DOMContentLoaded', (event) => {
+//   const temperatureSlider = document.querySelector('input[name="temperature"]');
+//   const temperatureValueDisplay = document.getElementById('temperature-value'); // Ersetze dies durch den tatsächlichen ID-Selektor deines Wert-Displays
+//   const snapValue = 1.0;
+//   const snapRange = temperatureSlider.step * 10;
+
+//   temperatureSlider.addEventListener('input', (e) => {
+//     let value = parseFloat(e.target.value);
+//     const step = parseFloat(e.target.step);
+
+//     if (value >= snapValue - snapRange && value <= snapValue + snapRange) {
+//       value = snapValue; // Setze den Wert auf den Snap-Wert
+//       e.target.value = value; // Aktualisiere den Slider-Wert
+//     }
+
+//     // Aktualisiere den angezeigten Wert
+//     if (temperatureValueDisplay) {
+//       temperatureValueDisplay.textContent = value.toFixed(2); // Zeige den Wert mit zwei Dezimalstellen an
+//     }
+//   });
+// });
+
+document.addEventListener('DOMContentLoaded', (event) => {
+  // Definiere ein Objekt, das die Snap-Werte und Bereiche für jeden Slider enthält
+  const snapSettings = {
+    temperature: { snapValue: 1.0, snapRangeMultiplier: 6 },
+    min_p: { snapValue: 0.05, snapRangeMultiplier: 2 },
+    top_p: { snapValue: 1.0, snapRangeMultiplier: 4 },
+    tfs_z: { snapValue: 1.0, snapRangeMultiplier: 4 },
+    typical_p: { snapValue: 1.0, snapRangeMultiplier: 4 },
+    repeat_penalty: { snapValue: 1.18, snapRangeMultiplier: 4 },
+
+    // n_predict: { snapValue: 385, snapRangeMultiplier: 3 },
+    // Füge hier weitere Slider mit ihren Einstellungen hinzu
+  };
+
+  // Füge jedem Slider einen Event-Listener hinzu
+  Object.keys(snapSettings).forEach(sliderName => {
+    const slider = document.querySelector(`input[name="${sliderName}"]`);
+    const settings = snapSettings[sliderName];
+
+    slider.addEventListener('input', (e) => {
+      let value = parseFloat(e.target.value);
+      const step = parseFloat(e.target.step);
+      const snapRange = step * settings.snapRangeMultiplier;
+      const valueDisplay = document.getElementById(`${e.target.name}-value`);
+
+      if (value >= settings.snapValue - snapRange && value <= settings.snapValue + snapRange) {
+        value = settings.snapValue; // Setze den Wert auf den Snap-Wert
+        e.target.value = value; // Aktualisiere den Slider-Wert
+      }
+
+      // Aktualisiere den angezeigten Wert
+      if (valueDisplay) {
+        valueDisplay.textContent = value.toFixed(2); // Zeige den Wert mit zwei Dezimalstellen an
+      }
+    });
+  });
+});
+
+// document.addEventListener('DOMContentLoaded', (event) => {
+//   const temperatureSlider = document.querySelector('input[name="temperature"]');
+//   const snapValue = 1.0;
+//   const snapRange = temperatureSlider.step * 5;
+
+//   temperatureSlider.addEventListener('input', (e) => {
+//     let value = parseFloat(e.target.value);
+//     const step = parseFloat(e.target.step);
+//     const temperatureValueDisplay = document.getElementById(`${e.target.name}-value`);
+
+//     if (value >= snapValue - snapRange && value <= snapValue + snapRange) {
+//       value = snapValue; // Setze den Wert auf den Snap-Wert
+//       e.target.value = value; // Aktualisiere den Slider-Wert
+//     }
+
+//     // Aktualisiere den angezeigten Wert
+//     if (temperatureValueDisplay) {
+//       temperatureValueDisplay.textContent = value.toFixed(2); // Zeige den Wert mit zwei Dezimalstellen an
+//     }
+//   });
+// });
+
+
+/////
 
     render(h(App), document.querySelector('#container'));
   </script>
