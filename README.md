@@ -1,5 +1,3 @@
-
-
 <h1 align="center">Custom Frontend for llama.cpp Server</h1>
 
 **This is a fork, but it adresses only the UI of the server. This work will maybe become merged against the upstream. In that case this repo will eventually become to something like a playground for quick and dirty experiments and tinkerings, while the merged frontend at ggerganov/llama.cpp will be a stable and well maintained version**
@@ -128,7 +126,7 @@ The following window will be your companion:
   <img src="media/gui-1_main.jpg" width="600" />
 
 <br>
-  
+
   <img src="media/gui-2_options.jpg" width="600" />
 
 <br>
