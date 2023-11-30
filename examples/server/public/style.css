@@ -1,19 +1,15 @@
 @import url("colorthemes.css");
 
 :root {
---primary-color: #11a37f;
+/* --primary-color: #11a37f;
 --secondary-color: #264653;
-
 --background-color: #00feff;
 --text-color: #333333;
-
 --border-color: #ff3333;
 --border-color-2: #ececf1;
-
 --button-hover-color: #197f63;
 --button-hover-alert: #e76f51;
-
---input-focus-border-color: #11a37f;
+--input-focus-border-color: #11a37f; */
 
 --loading-color-1: #eeeeee00;
 --loading-color-2: #eeeeeeff;
@@ -145,7 +141,6 @@ fieldset.dropdowns {
 .names input[type="text"] {
   font-family: Arial, sans-serif;
   font-size: medium;
-  color: var(--background-color-2);
   font-weight: 500;
   padding: 5px;
   border: 1px solid var(--border-color-2);
@@ -258,8 +253,8 @@ select:focus {
 button {
   color: var(--button-primary-text);
   background-color: var(--button-primary-color);
-  transition: background-color 0.1s;
   border: 1px solid var(--button-primary-border);
+  transition: background-color 0.1s;
   border-radius: 12px;
   font-size: x-small;
   font-weight: 600;
@@ -287,22 +282,27 @@ button:active {
 }
 
 button:disabled {
-  color: var(--button-tertiary-text);
-  background-color: var(--button-tertiary-color);
-  border: 1px solid var(--button-tertiary-border);
+  --tertiary-button: hsl(210, calc(var(--theme-nuance-color-3-saturation) - 40%), calc(var(--theme-nuance-color-3-lightness) + 20%));
+
+  --tertiary-button-text: hsl(210, calc(var(--theme-nuance-color-3-saturation) - 40%), calc(var(--theme-nuance-color-3-lightness) - 5%));
+
+  background-color: var(--tertiary-button);
+  border: 1px solid var(--tertiary-button);
+  color: var(--tertiary-button-text);
   cursor: not-allowed;
   font-size: x-small;
   font-weight: 600;
 }
 
 .reset-button {
+
+  background-color: var(--button-secondary-color);
+  border: 1px solid var(--button-secondary-border);
+  color: var(--button-secondary-text);
   width: fit-content;
   height: fit-content;
-  background-color: var(--button-secondary-color);
-  color: var(--button-secondary-text);
   font-size: x-small;
   font-weight: 600;
-  border: 1px solid var(--button-secondary-border);
   border-radius: 50px;
   overflow: hidden;
 }
@@ -311,6 +311,8 @@ button:disabled {
   color: var(--button-primary-text);
   background-color: var(--button-hover-alert);
   border: 1px solid var(--button-hover-alert);
+  font-size: x-small;
+  font-weight: 600;
 }
 
 .reset-button:active {
@@ -352,10 +354,14 @@ button:disabled {
 }
 
 .button-back {
-  color: var(--button-secondary-text);
-  background-color: var(--button-secondary-color);
+  --secondary-button: hsl(210, calc(var(--theme-nuance-color-3-saturation) - 20%), calc(var(--theme-nuance-color-3-lightness) + 10%));
+
+  --secondary-button-text: hsl(210, calc(var(--theme-nuance-color-3-saturation) - 20%), calc(var(--theme-nuance-color-3-lightness) - 50%));
+
+  background-color: var(--secondary-button);
+  border: 1px solid var(--secondary-button);
+  color: var(--secondary-button-text);
   transition: background-color 0.1s;
-  border: 1px solid var(--button-secondary-border);
   border-radius: 12px;
   font-size: x-small;
   font-weight: 600;

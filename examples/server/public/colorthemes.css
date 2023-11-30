@@ -1,8 +1,44 @@
+/* .theme-template {
+
+
+    If light theme: should go from bright to darker
+    If dark theme: should go from dark to brighter
+
+    --primary-color-1: #2E3440;
+    --primary-color-2: #3B4252;
+    --primary-color-3: #434C5E;
+    --primary-color-4: #4C566A;
+
+
+    If light theme: should go from dark to brighter
+    If dark theme: should go from bright to darker
+
+    --secondary-color-1: #ECEFF4;
+    --secondary-color-2: #E5E9F0;
+    --secondary-color-3: #D8DEE9;
+    --secondary-color-4: #C8CED9;
+
+
+    --theme-nuance-color-1: #8FBCBB;
+    --theme-nuance-color-2: #88C0D0;
+    --theme-nuance-color-3: #81A1C1;
+    --theme-nuance-color-4: #5E81AC;
+
+
+    --theme-red-color:    #BF616A;
+    --theme-orange-color: #D08770;
+    --theme-yellow-color: #EBCB8B;
+    --theme-green-color:  #A3BE8C;
+    --theme-purple-color: #B48EAD;
+
+} */
+
 
 /* Inspiration from Nord Theme https://www.nordtheme.com/docs/colors-and-palettes */
 
 .theme-polarnight {
 
+/*
 --primary-color-1: #2E3440;
 --primary-color-2: #3B4252;
 --primary-color-3: #434C5E;
@@ -23,6 +59,30 @@
 --theme-yellow-color: #EBCB8B;
 --theme-green-color:  #A3BE8C;
 --theme-purple-color: #B48EAD;
+*/
+
+--primary-color-1: hsl(220, 16.4%, 21.6%);
+--primary-color-2: hsl(221.7, 16.3%, 27.6%);
+--primary-color-3: hsl(220, 16.8%, 31.6%);
+--primary-color-4: hsl(220, 16.5%, 35.7%);
+
+--secondary-color-1: hsl(217.5, 26.7%, 94.1%);
+--secondary-color-2: hsl(218.2, 26.8%, 92%);
+--secondary-color-3: hsl(218.8, 27.9%, 88%);
+--secondary-color-4: hsl(218.8, 18.3%, 81.8%);
+
+--theme-nuance-color-1: hsl(178.7, 25.1%, 64.9%);
+--theme-nuance-color-2: hsl(193.3, 43.4%, 67.5%);
+--theme-nuance-color-3: hsl(210, 34%, 63.1%);
+--theme-nuance-color-3-saturation: 34%;
+--theme-nuance-color-3-lightness: 63.1%;
+--theme-nuance-color-4: hsl(213.1, 32%, 52.2%);
+
+--theme-red-color:    hsl(354.3, 42.3%, 56.5%);
+--theme-orange-color: hsl(14.4, 50.5%, 62.7%);
+--theme-yellow-color: hsl(40, 70.6%, 73.3%);
+--theme-green-color:  hsl(92.4, 27.8%, 64.7%);
+--theme-purple-color: hsl(311.1, 20.2%, 63.1%);
 
 --background-color-1: var(--primary-color-1);
 --background-color-2: var(--primary-color-2);
@@ -47,9 +107,6 @@
 --ui-range-thumb-border: var(--ui-ranger-thumb-color);
 
 --textarea-border-color: var(--secondary-color-4);
-
---loading-color-1: #eeeeee00;
---loading-color-2: #eeeeeeff;
 
 --button-hover-alert:  var(--theme-orange-color);
 
@@ -91,10 +148,134 @@
 --button-tertiary-color-active:  var(--secondary-color-3);
 --button-tertiary-text-active:   var(--secondary-color-4);
 --button-tertiary-border-active: var(--secondary-color-3);
-
 }
 
+.theme-snowstorm {
 
+    /*
+    --primary-color-1: #ECEFF4;
+    --primary-color-2: #E5E9F0;
+    --primary-color-3: #D8DEE9;
+    --primary-color-4: #C8CED9;
+
+    --secondary-color-1: #2E3440;
+    --secondary-color-2: #3B4252;
+    --secondary-color-3: #434C5E;
+    --secondary-color-4: #4C566A;
+
+    --theme-nuance-color-1: #8FBCBB;
+    --theme-nuance-color-2: #88C0D0;
+    --theme-nuance-color-3: #81A1C1;
+    --theme-nuance-color-4: #5E81AC;
+
+    --theme-red-color:    #BF616A;
+    --theme-orange-color: #D08770;
+    --theme-yellow-color: #EBCB8B;
+    --theme-green-color:  #A3BE8C;
+    --theme-purple-color: #B48EAD;
+    */
+
+    --primary-color-1: hsl(217.5, 26.7%, 94.1%);
+    --primary-color-2: hsl(218.2, 26.8%, 92%);
+    --primary-color-3: hsl(218.8, 27.9%, 88%);
+    --primary-color-4: hsl(218.8, 18.3%, 81.8%);
+
+    --secondary-color-1: hsl(220, 16.4%, 21.6%);
+    --secondary-color-2: hsl(221.7, 16.3%, 27.6%);
+    --secondary-color-3: hsl(220, 16.8%, 31.6%);
+    --secondary-color-4: hsl(220, 16.5%, 35.7%);
+
+    --theme-nuance-color-1: hsl(178.7, 25.1%, 64.9%);
+    --theme-nuance-color-2: hsl(193.3, 43.4%, 67.5%);
+    --theme-nuance-color-3: hsl(210, 34%, 63.1%);
+    --theme-nuance-color-3-hue: 210;
+    --theme-nuance-color-3-saturation: 34%;
+    --theme-nuance-color-3-lightness: 63.1%;
+    --theme-nuance-color-4: hsl(213.1, 32%, 52.2%);
+
+    --theme-red-color:    hsl(354.3, 42.3%, 56.5%);
+    --theme-orange-color: hsl(14.4, 50.5%, 62.7%);
+    --theme-yellow-color: hsl(40, 70.6%, 73.3%);
+    --theme-green-color:  hsl(92.4, 27.8%, 64.7%);
+    --theme-purple-color: hsl(311.1, 20.2%, 63.1%);
+
+    --background-color-1: var(--primary-color-1);
+    --background-color-2: var(--primary-color-2);
+    --background-color-3: var(--primary-color-3);
+    --background-color-4: var(--primary-color-4);
+
+    --border-color-1: var(--primary-color-2);
+    --border-color-2: var(--primary-color-3);
+    --border-color-3: var(--primary-color-4);
+
+    --border-focus-color:  var(--theme-nuance-color-2);
+    --border-focus-shadow: var(--theme-nuance-color-1);
+
+    --text-color-plain:     var(--secondary-color-1);
+    --text-color-subtile-1: var(--secondary-color-2);
+    --text-color-subtile-2: var(--secondary-color-3);
+
+    --code-background-color: var(--secondary-color-2);
+    --code-text-color:       var(--primary-color-2);
+
+    --ui-range-thumb-color: var(--theme-nuance-color-3);
+    --ui-range-thumb-border: var(--ui-ranger-thumb-color);
+
+    --textarea-border-color: var(--secondary-color-4);
+
+    --button-hover-alert:  var(--theme-orange-color);
+
+
+
+    /* this button should immediately catch the eye */
+    --button-primary-color:  var(--theme-nuance-color-3);
+    --button-primary-text:   var(--secondary-color-1);
+    --button-primary-border: var(--theme-nuance-color-3);
+
+    --button-primary-color-hover:  var(--theme-nuance-color-4);
+    --button-primary-text-hover:   var(--secondary-color-1);
+    --button-primary-border-hover: var(--theme-nuance-color-4);
+
+    --button-primary-color-active:  var(--primary-color-4);
+    --button-primary-text-active:   var(--secondary-color-1);
+    --button-primary-border-active: var(--primary-color-4);
+
+
+
+    /* this button should NOT immediately catch the eye */
+    --button-secondary-color: hsl(210, calc(var(--theme-nuance-color-3-saturation) - 20%), calc(var(--theme-nuance-color-3-lightness) + 10%));
+
+    --button-secondary-text: hsl(210, calc(var(--theme-nuance-color-3-saturation) - 20%), calc(var(--theme-nuance-color-3-lightness) - 10%));
+
+    --button-secondary-border: hsl(210, calc(var(--theme-nuance-color-3-saturation) - 20%), calc(var(--theme-nuance-color-3-lightness) + 10%));
+
+
+    --button-secondary-color-hover:  var(--secondary-color-4);
+    --button-secondary-text-hover:   var(--primary-color-3);
+    --button-secondary-border-hover: var(--secondary-color-4);
+
+    --button-secondary-color-active:  var(--primary-color-4);
+    --button-primary-text-active:     var(--secondary-color-1);
+    --button-secondary-border-active: var(--primary-color-4);
+
+
+
+    /* disabled buttons */
+    --button-tertiary-color: hsl(210, calc(var(--theme-nuance-color-3-saturation) - 40%), calc(var(--theme-nuance-color-3-lightness) + 20%));
+
+    --button-tertiary-text: hsl(210, calc(var(--theme-nuance-color-3-saturation) - 40%), calc(var(--theme-nuance-color-3-lightness) - 5%));
+
+    --button-tertiary-border: hsl(210, calc(var(--theme-nuance-color-3-saturation) - 40%), calc(var(--theme-nuance-color-3-lightness) + 20%));
+
+    --button-tertiary-color-hover:  var(--secondary-color-3);
+    --button-tertiary-text-hover:   var(--secondary-color-4);
+    --button-tertiary-border-hover: var(--secondary-color-3);
+
+    --button-tertiary-color-active:  var(--secondary-color-3);
+    --button-tertiary-text-active:   var(--secondary-color-4);
+    --button-tertiary-border-active: var(--secondary-color-3);
+
+}
 
 /* .theme-brown {
 --primary-color:   #ff8234;

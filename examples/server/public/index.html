@@ -753,6 +753,7 @@ function updateSystemPrompt(e) {
                 <option value="brown">Brown</option>
                 <option value="blark">Blau</option>
                 <option value="polarnight">Polar Night</option>
+                <option value="snowstorm">Snow Storm</option>
                 <option value="sun">Sonne</option>
                 <option value="tech">Technik</option>
                 <!-- ... more themes ... -->
@@ -1113,7 +1114,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   themeSelector.addEventListener('change', function(event) {
     // remove all existing/defined theme classes
-    document.body.classList.remove('theme-sun', 'theme-tech', 'theme-blark', 'theme-brown', 'theme-polarnight', 'theme-default');
+    document.body.classList.remove('theme-sun', 'theme-tech', 'theme-blark', 'theme-brown', 'theme-polarnight', 'theme-default', 'theme-snowstorm');
     // add the selected theme class
     var selectedTheme = event.target.value;
     if (selectedTheme !== 'default') {
