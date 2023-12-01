@@ -122,6 +122,15 @@ model_selection() {
     return
   fi
 
+
+##### DEBUG
+echo "Model files found:"
+printf '%s\n' "${model_files[@]}"
+echo "Menu arguments:"
+for i in "${!model_files[@]}"; do echo "$((i+1))" "$(basename "${model_files[$i]}")"; done
+##### DEBUG
+
+
 # Selection menu for models found
 exec 3>&1
 model_choice=$(dialog --backtitle "Model Selection" \

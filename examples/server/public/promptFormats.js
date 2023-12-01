@@ -182,7 +182,13 @@ export const promptFormats = {
 },
 "starlingLM": {
   template: "{{history}}{{char}}",
-  historyTemplate: "GPT4 {{user}}: {{message}}<|end_of_turn|>",
+  historyTemplate: "GPT4 Correct {{user}}: {{message}}<|end_of_turn|>",
+  char: "Assistant",
+  user: "User"
+},
+"starlingLMCode": {
+  template: "{{history}}{{char}}",
+  historyTemplate: "Code {{user}}: {{message}}<|end_of_turn|>",
   char: "Assistant",
   user: "User"
 },
