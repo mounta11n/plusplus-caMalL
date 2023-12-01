@@ -1,10 +1,4 @@
 @import url("colorthemes.css");
-@import url("theme-playground.css");
-
-:root {
---loading-color-1: #eeeeee00;
---loading-color-2: #eeeeeeff;
-}
 
 body {
   font-family: 'Arial', sans-serif;
@@ -298,7 +292,7 @@ button:disabled {
 }
 
 .reset-button:hover {
-  color: var(--secondary-color-1);
+  color: var(--button-alert-text-hover);
   background-color: var(--button-alert-color-hover);
   border: 1px solid var(--button-alert-border-hover);
   font-size: x-small;
@@ -306,7 +300,7 @@ button:disabled {
 }
 
 .reset-button:active {
-  color: var(--primary-color-1);
+  color: var(--button-alert-text-active);
   background-color: var(--button-alert-color-active);
   border: 1px solid var(--button-alert-border-active);
   font-size: x-small;

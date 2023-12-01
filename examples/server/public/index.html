@@ -573,26 +573,7 @@ function updateSystemPrompt(e) {
         }
       }
 
-      // const FloatField = ({ label, max, min, name, step, value }) => {
-      //   return html`
-      //     <div>
-      //       <label for="${name}">${label}</label>
-      //       <input type="range" id="${name}" min="${min}" max="${max}" step="${step}" name="${name}" value="${value}" oninput=${updateParamsFloat} />
-      //       <span>${value}</span>
-      //     </div>
-      //   `
-      // };
 
-      // const FloatField = ({ label, max, min, name, step, value }) => {
-      //   const spanId = `${name}-value`; // unique ID for the span element
-      //   return html`
-      //     <div>
-      //       <label for="${name}">${label}</label>
-      //       <input type="range" id="${name}" min="${min}" max="${max}" step="${step}" name="${name}" value="${value}" oninput=${updateParamsFloat} />
-      //       <span id="${spanId}">${value}</span> <!-- use the unique ID here -->
-      //     </div>
-      //   `;
-      // };
 
       const FloatField = ({ label, max, min, name, step, value }) => {
         return html`
@@ -750,13 +731,11 @@ function updateSystemPrompt(e) {
               <!--</select>-->
               <select id="theme-selector">
                 <option value="default">Default</option>
-                <option value="brown">Brown</option>
-                <option value="blark">Blau</option>
+                <option value="mangotango">Mango Tango</option>
                 <option value="playground">Playground</option>
                 <option value="polarnight">Polar Night</option>
                 <option value="snowstorm">Snow Storm</option>
-                <option value="sun">Sonne</option>
-                <option value="tech">Technik</option>
+                <option value="been_in_order">Been In Order</option>
                 <!-- ... more themes ... -->
               </select>
             </div>
@@ -790,7 +769,7 @@ function updateSystemPrompt(e) {
               </div>
             </div>
           </details>
-          <details open>
+          <details>
             <summary><span class="summary-title" id="id_grammar-title" id_grammar-title>Grammar</span></summary>
             ${GrammarControl()}
           </details>
@@ -1082,7 +1061,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   themeSelector.addEventListener('change', function(event) {
     // remove all existing/defined theme classes
-    document.body.classList.remove('theme-sun', 'theme-tech', 'theme-blark', 'theme-brown', 'theme-polarnight', 'theme-default', 'theme-playground', 'theme-snowstorm');
+    document.body.classList.remove('theme-default', 'theme-mangotango', 'theme-playground', 'theme-polarnight', 'theme-snowstorm', 'theme-been_in_order');
     // add the selected theme class
     var selectedTheme = event.target.value;
     if (selectedTheme !== 'default') {
