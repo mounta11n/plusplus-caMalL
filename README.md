@@ -72,6 +72,7 @@
 
 For those wishes I think I'll need some advices and help. Feel free to contact me if you're interested in working together on those things.
 
+3. Finde eine Datei namens 'start-server.sh' und wähle die Datei mit der rechten Maustaste aus.
 
 <br>
 <br>
