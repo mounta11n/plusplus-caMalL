@@ -1,16 +1,7 @@
 @import url("colorthemes.css");
+@import url("theme-playground.css");
 
 :root {
-/* --primary-color: #11a37f;
---secondary-color: #264653;
---background-color: #00feff;
---text-color: #333333;
---border-color: #ff3333;
---border-color-2: #ececf1;
---button-hover-color: #197f63;
---button-hover-alert: #e76f51;
---input-focus-border-color: #11a37f; */
-
 --loading-color-1: #eeeeee00;
 --loading-color-2: #eeeeeeff;
 }
@@ -25,6 +16,7 @@ body {
   line-height: 1.2;
   margin: 0 auto;
   padding: 0 0.5em;
+  transition: background-color 0.3s;
 }
 
 code, pre code {
@@ -259,6 +251,7 @@ button {
   border-radius: 12px;
   font-size: x-small;
   font-weight: 600;
+  text-shadow: 0px 0px 30px #ffffff;
   text-align: center;
   text-decoration: none;
   margin: 4px 2px;
@@ -305,17 +298,17 @@ button:disabled {
 }
 
 .reset-button:hover {
-  color: var(--button-primary-text);
-  background-color: var(--button-hover-alert);
-  border: 1px solid var(--button-hover-alert);
+  color: var(--secondary-color-1);
+  background-color: var(--button-alert-color-hover);
+  border: 1px solid var(--button-alert-border-hover);
   font-size: x-small;
   font-weight: 600;
 }
 
 .reset-button:active {
-  color: var(--button-primary-text-active);
-  background-color: var(--theme-red-color);
-  border: 1px solid var(--theme-red-color);
+  color: var(--primary-color-1);
+  background-color: var(--button-alert-color-active);
+  border: 1px solid var(--button-alert-border-active);
   font-size: x-small;
   font-weight: 600;
 }
