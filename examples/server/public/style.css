@@ -236,7 +236,8 @@ select {
   margin-right: 5px;
   border-radius: 4px;
   border: 1px solid var(--secondary-color-4);
-  background-color: var(--secondary-color-3);
+  background-color: var(--primary-color-3);
+  color: var(--secondary-color-4);
   cursor: pointer;
 }
 
@@ -267,6 +268,7 @@ button {
 }
 
 button:hover {
+  color: var(--button-primary-text-hover);
   background-color: var(--button-primary-color-hover);
   border: 1px solid var(--button-primary-border-hover);
   font-size: x-small;
@@ -282,22 +284,17 @@ button:active {
 }
 
 button:disabled {
-  --tertiary-button: hsl(210, calc(var(--theme-nuance-color-3-saturation) - 40%), calc(var(--theme-nuance-color-3-lightness) + 20%));
-
-  --tertiary-button-text: hsl(210, calc(var(--theme-nuance-color-3-saturation) - 40%), calc(var(--theme-nuance-color-3-lightness) - 5%));
-
-  background-color: var(--tertiary-button);
-  border: 1px solid var(--tertiary-button);
-  color: var(--tertiary-button-text);
-  cursor: not-allowed;
+  color: var(--button-tertiary-text);
+  background-color: var(--button-tertiary-color);
+  border: 1px solid var(--button-tertiary-border);
   font-size: x-small;
   font-weight: 600;
+  cursor: not-allowed;
 }
 
 .reset-button {
-
   background-color: var(--button-secondary-color);
-  border: 1px solid var(--button-secondary-border);
+  border: 1px solid var(--button-secondary-color);
   color: var(--button-secondary-text);
   width: fit-content;
   height: fit-content;
@@ -332,7 +329,8 @@ button:disabled {
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: small;
+  font-size: x-small;
+  font-weight: 600;
   margin: 2px 2px;
   transition: background-color 0.1s;
   cursor: pointer;
@@ -347,20 +345,25 @@ button:disabled {
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: small;
+  font-size: x-small;
+  font-weight: 600;
   margin: 2px 2px;
   transition: background-color 0.1s;
   cursor: pointer;
 }
 
+.button-grammar:active {
+  color: var(--button-primary-text-active);
+  background-color: var(--button-primary-color-active);
+  border: 1px solid var(--button-primary-border-active);
+  font-size: x-small;
+  font-weight: 600;
+}
+
 .button-back {
-  --secondary-button: hsl(210, calc(var(--theme-nuance-color-3-saturation) - 20%), calc(var(--theme-nuance-color-3-lightness) + 10%));
-
-  --secondary-button-text: hsl(210, calc(var(--theme-nuance-color-3-saturation) - 20%), calc(var(--theme-nuance-color-3-lightness) - 50%));
-
-  background-color: var(--secondary-button);
-  border: 1px solid var(--secondary-button);
-  color: var(--secondary-button-text);
+  background-color: var(--button-secondary-color);
+  border: 1px solid var(--button-secondary-color);
+  color: var(--button-secondary-text);
   transition: background-color 0.1s;
   border-radius: 12px;
   font-size: x-small;
@@ -390,9 +393,9 @@ button:disabled {
 }
 
 .button-back:active {
-  color: var(--button-primary-text-active);
-  background-color: var(--button-primary-color-active);
-  border: 1px solid var(--button-primary-border-active);
+  color: var(--button-secondary-text-active);
+  background-color: var(--button-secondary-color-active);
+  border: 1px solid var(--button-secondary-border-active);
   font-size: x-small;
   font-weight: 600;
 }
@@ -406,15 +409,16 @@ button:disabled {
   position: absolute;
   background-color: white;
   padding: 0.2em;
-  box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 13px rgba(0, 0, 0, 0.1);
 }
 
+/* Grammar text field */
 textarea {
   padding: 5px;
   flex-grow: 1;
   width: 100%;
   border-radius: 8px;
-  border: 1px solid var(--textarea-border-color);
+  border: 1px solid var(--border-color-1);
   resize: none;
   height: 6em;
 }
@@ -425,10 +429,12 @@ textarea:focus {
   box-shadow: 0 0 3px var(--border-focus-shadow);
 }
 
+/* "props" frame */
 input[type="text"],
 input[type="range"] {
   padding: 5px;
   border-radius: 8px;
+  border: 1px solid var(--border-color-1);
 }
 
 /* "names and props" frame focused*/
@@ -462,7 +468,7 @@ input[type="range"] {
   -webkit-appearance: none;
   width: 80%;
   height: 1px;
-  border: 1px solid var(--background-color-1);
+  border: 1px solid var(--border-color-1);
   border-radius: 8px;
   background: var(--border-color-2);
   outline: none;
@@ -508,10 +514,21 @@ textarea#chat-input {
   padding-top: 10px;
   padding-left: 10px;
   font-size: medium;
+  border: 1px solid var(--border-color-2);
+}
+
+textarea#chat-input:focus {
+  border: 1px solid var(--border-focus-color);
+  box-shadow: 0 0 3px var(--border-focus-shadow);
 }
 
 .input-container {
   position: relative;
+}
+
+.input-container:focus {
+  border: 1px solid var(--border-focus-color);
+  box-shadow: 0 0 3px var(--border-focus-shadow);
 }
 
 /* embedded title of the system prompt text area */
@@ -521,11 +538,22 @@ textarea#chat-input {
   left: 0;
   color: var(--theme-nuance-color-4);
   pointer-events: none;
-  margin-left: 13px;
-  margin-top: 16px;
+  border-radius: 8px 8px 0px 0px;
+  padding-top: 10px;
+  padding-left: 13px;
+  padding-right: 0px;
+  margin-top: 1px;
+  margin-left: 1px;
+  margin-right: 20px;
   text-transform: uppercase;
   font-weight: 600;
   font-size: small;
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px); /* for safari */
+  width: 97%;
+  /* display: block;
+  box-sizing: border-box; */
 }
 
 /* embedded title of the prompt style areas */
@@ -549,11 +577,36 @@ textarea.persistent-input {
   font-size: medium;
 }
 
+/* chat history box */
+.persistent-input {
+  height: auto;
+  min-height: 150px;
+}
+
+/* chat history box */
+.persistent-input:focus {
+  height: auto;
+  min-height: 150px;
+  border: 1px solid var(--border-focus-color);
+  box-shadow: 0 0 3px var(--border-focus-shadow);
+}
+
+textarea.persistent-input:focus {
+  border: 1px solid var(--border-focus-color);
+  box-shadow: 0 0 3px var(--border-focus-shadow);
+}
+
 /* prompt style input area */
 textarea.persistent-input-sec {
   padding-top: 42px;
   padding-left: 11px;
   font-size: small;
+  border: 1px solid var(--border-color-1);
+}
+
+textarea.persistent-input-sec:focus {
+  border: 1px solid var(--border-focus-color);
+  box-shadow: 0 0 3px var(--border-focus-shadow);
 }
 
 /* chat history box */
@@ -623,10 +676,12 @@ footer a:hover {
 
 .mode-chat textarea[name=prompt] {
   height: 8.5em;
+  border: 1px solid var(--primary-color-3);
 }
 
 .mode-completion textarea[name=prompt] {
   height: 30em;
+  border: 1px solid var(--primary-color-3);
 }
 
 @keyframes loading-bg-wipe {
