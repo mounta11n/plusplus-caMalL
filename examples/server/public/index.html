@@ -1076,39 +1076,6 @@ function updateSystemPrompt(e) {
     }
 
 
-
-
-
-
-
-// document.addEventListener('DOMContentLoaded', function() {
-//   var themeToggleButton = document.getElementById('theme-toggle');
-//   var userThemeClass = localStorage.getItem('user-theme');
-//   // Setze den initialen Theme basierend auf dem Local Storage
-//   if (userThemeClass) {
-//     document.body.classList.add(userThemeClass);
-//   }
-//   if (themeToggleButton) {
-//     themeToggleButton.addEventListener('click', function(event) {
-//       event.stopPropagation();
-//       var isDarkTheme = document.body.classList.contains('dark-theme');
-//       var newThemeClass = isDarkTheme ? 'user-theme-light' : 'user-theme-dark';
-//       document.body.classList.remove('dark-theme', 'user-theme-light', 'user-theme-dark');
-//       document.body.classList.add(newThemeClass);
-//       localStorage.setItem('user-theme', newThemeClass);
-//     });
-//   } else {
-//     console.error('Der Button mit der ID "theme-toggle" wurde nicht gefunden.');
-//   }
-// });
-
-
-
-
-
-
-
-
 document.addEventListener('DOMContentLoaded', function() {
   var themeSelector = document.getElementById('theme-selector');
 
@@ -1131,12 +1098,6 @@ document.addEventListener('DOMContentLoaded', function() {
     themeSelector.value = savedTheme;
   }
 });
-
-
-
-
-
-
 
 
 // snapping of the slider to indicate 'disabled'
