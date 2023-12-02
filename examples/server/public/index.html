@@ -807,7 +807,7 @@ function updateSystemPrompt(e) {
           <details>
             <summary><span class="summary-title">Further Options</span></summary>
             <fieldset class="two">
-              ${IntField({ label: "Top-K", max: 100, min: -1, step: 1, name: "top_k", value: params.value.top_k })}
+              ${IntField({ label: "Top-K", max: 100, min: 0, step: 1, name: "top_k", value: params.value.top_k })}
               ${IntField({ label: "Penalize Last N", max: 2048, min: 0, step: 16, name: "repeat_last_n", value: params.value.repeat_last_n })}
               ${FloatField({ label: "Top-P", max: 1.0, min: 0.0, name: "top_p", step: 0.01, value: params.value.top_p })}
               ${FloatField({ label: "Presence Penalty", max: 1.0, min: 0.0, name: "presence_penalty", step: 0.01, value: params.value.presence_penalty })}
