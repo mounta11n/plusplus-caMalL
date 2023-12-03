@@ -589,6 +589,7 @@ textarea.persistent-input {
   padding-top: 42px;
   padding-left: 11px;
   font-size: medium;
+  overscroll-behavior: contain;
 }
 
 /* chat history box */
@@ -616,6 +617,7 @@ textarea.persistent-input-sec {
   padding-left: 11px;
   font-size: small;
   border: 1px solid var(--border-color-1);
+  overscroll-behavior: contain;
 }
 
 textarea.persistent-input-sec:focus {
@@ -661,12 +663,19 @@ header {
   justify-content: space-between;
   align-items: center;
   text-align: center;
+  padding-left: 15px;
+}
+
+.generation-statistics:hover {
+  color: var(--theme-nuance-color-4);
+  cursor: default;
 }
 
 footer {
   font-size: 80%;
   color: var(--background-color-3);
   text-align: center;
+  cursor: default;
   }
 
 footer a {

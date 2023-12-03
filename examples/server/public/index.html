@@ -410,7 +410,7 @@
       };
 
       return html`
-        <section id="chat" ref=${container}>
+        <section id="chat" contenteditable="true" ref=${container}>
           <img style="width: 60%;${!session.value.image_selected ? `display: none;` : ``}" src="${session.value.image_selected}"/>
           ${messages.flatMap(chatLine)}
         </section>`;
@@ -983,9 +983,9 @@ function updateSystemPrompt(e) {
       }, []);
 
       return html`
-        <span style=${props.style} ref=${buttonRef} onClick=${togglePopover}>${props.children}</span>
+        <span style=${props.style} ref=${buttonRef} onClick=${togglePopover} contenteditable="true">${props.children}</span>
         ${isOpen.value && html`
-          <${Portal} into="#portal" contenteditable="true">
+          <${Portal} into="#portal">
             <div
               ref=${popoverRef}
               class="popover-content"
