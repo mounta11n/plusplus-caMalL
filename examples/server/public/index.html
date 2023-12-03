@@ -365,13 +365,14 @@
       `
     }
 
+    // the completion view needs some ux improvements
     function CompletionControls() {
       const submit = (e) => {
         stop(e);
         runCompletion();
       }
       return html`
-        <div>
+        <div class="right">
           <button onclick=${submit} type="button" disabled=${generating.value}>Start</button>
           <button onclick=${stop} disabled=${!generating.value}>Stop</button>
     <button onclick=${reset}>Back</button>
@@ -440,8 +441,47 @@ function updatePromptFormat(e) {
       user: "User"
     };
   }
+  console.log('Updated session value:', session.value); //
 }
 
+
+
+function updatePromptFormatFromDropdown(element) {
+  const promptFormat = element.getAttribute('data-value');
+  console.log('Selected prompt format:', promptFormat); // debugging
+  updatePromptFormat({ target: { value: promptFormat } });
+}
+// Funktion, die die Event-Listener hinzufügt, sobald das Element verfügbar ist
+function addEventListenersWhenAvailable() {
+  var themeSelector = document.getElementById('theme-selector');
+  if (themeSelector) {
+    themeSelector.addEventListener('change', function(event) {
+      // Event-Handler-Code...
+    });
+    // Weitere Event-Listener hier hinzufügen
+  } else {
+    // Element ist noch nicht da, warte weiter
+    requestAnimationFrame(addEventListenersWhenAvailable);
+  }
+}
+
+// Starte die Überprüfung
+requestAnimationFrame(addEventListenersWhenAvailable);
+
+function handleDropdownSelection(e, promptFormat) {
+  // Verhindere das Standardverhalten des Links
+  e.preventDefault();
+
+  // Erstelle ein neues Event-Objekt mit dem Wert aus dem data-value Attribut
+  const customEvent = {
+    target: {
+      value: promptFormat
+    }
+  };
+
+  // Rufe die updatePromptFormat-Funktion mit dem neuen Event-Objekt auf
+  updatePromptFormat(customEvent);
+}
 ///////////////////////////////////////////////////////////////////////////
 //
 ///////////// WORK IN PROGRESS ///////////// MULTILINGUAL UI AND PROMPTS //
@@ -610,7 +650,6 @@ function updateSystemPrompt(e) {
         return html`
           <div class="button-container">
             <button class="reset-button" title="Caution: This resets the entire form." onclick="${userTemplateReset}">Reset</button>
-
           </div>
         `
       };
@@ -625,10 +664,12 @@ function updateSystemPrompt(e) {
           <div>
             <label for="template"></label>
             <textarea id="grammar" name="grammar" placeholder="Use GBNF or JSON-Scheme + Converter" value="${params.value.grammar}" rows=4 oninput=${updateParams}/>
-            <div class="json-schema-controls">
-            <input type="text" name="prop-order" placeholder="Order: prop1,prop2,prop3" oninput=${updateGrammarJsonSchemaPropOrder} />
-            <button type="button" class="button-grammar" onclick=${convertJSONSchemaGrammar}>Convert JSON-Scheme</button>
-          </div>
+            <div class="grammar-columns">
+              <div class="json-schema-controls">
+                <input type="text" name="prop-order" placeholder="Order: prop1,prop2,prop3" oninput=${updateGrammarJsonSchemaPropOrder} />
+                <button type="button" class="button-grammar" onclick=${convertJSONSchemaGrammar}>Convert JSON-Scheme</button>
+              </div>
+            </div>
           </div>
         `
       );
@@ -652,8 +693,6 @@ function updateSystemPrompt(e) {
 
       const ChatConfigForm = () => (
         html`
-
-          <!-- <button id="theme-toggle">Dark/Light</button> -->
           <fieldset class="dropdowns">
             <div>
               <select id="promptFormat" name="promptFormat" onchange=${updatePromptFormat}>
@@ -729,15 +768,6 @@ function updateSystemPrompt(e) {
                 <!--<option value="DE">German</option>-->
                 <!--<option value="placeholderLanguage">Placeholder</option>-->
               <!--</select>-->
-              <select id="theme-selector">
-                <option value="default">Default</option>
-                <option value="mangotango">Mango Tango</option>
-                <option value="playground">Playground</option>
-                <option value="polarnight">Polar Night</option>
-                <option value="snowstorm">Snow Storm</option>
-                <option value="been_in_order">Been In Order</option>
-                <!-- ... more themes ... -->
-              </select>
             </div>
           </fieldset>
           ${PromptControlFieldSet()}
@@ -754,26 +784,27 @@ function updateSystemPrompt(e) {
           <fieldset>
             <details open>
               <summary><span class="summary-title" id="id_prompt-style">Prompt Style</span></summary>
-                <div class="two-columns">
-                  <div>
-                    <div class="input-container">
+              <div class="two-columns">
+                <div>
+                  <div class="input-container">
                     <label for="template" class="input-label-sec" id_prompt-template>Prompt Template</label>
                     <textarea id="template" class="persistent-input-sec" name="template" value="${session.value.template}" rows=6 oninput=${updateSession}/>
                   </div>
                 </div>
-              <div>
-                <div class="input-container">
-                  <label for="template" class="input-label-sec" id="id_history-template">Chat History</label>
-                  <textarea id="template" class="persistent-input-sec" name="historyTemplate" value="${session.value.historyTemplate}" rows=1 oninput=${updateSession}/>
+                <div>
+                  <div class="input-container">
+                    <label for="template" class="input-label-sec" id="id_history-template">Chat History</label>
+                    <textarea id="template" class="persistent-input-sec" name="historyTemplate" value="${session.value.historyTemplate}" rows=1 oninput=${updateSession}/>
+                  </div>
                 </div>
               </div>
-            </div>
-          </details>
-          <details>
-            <summary><span class="summary-title" id="id_grammar-title" id_grammar-title>Grammar</span></summary>
-            ${GrammarControl()}
-          </details>
-        </fieldset>
+            </details>
+            <details>
+              <summary><span class="summary-title" id="id_grammar-title" id_grammar-title>Grammar</span></summary>
+              ${GrammarControl()}
+            </details>
+
+            </fieldset>
         `
       );
 
@@ -954,7 +985,7 @@ function updateSystemPrompt(e) {
       return html`
         <span style=${props.style} ref=${buttonRef} onClick=${togglePopover}>${props.children}</span>
         ${isOpen.value && html`
-          <${Portal} into="#portal">
+          <${Portal} into="#portal" contenteditable="true">
             <div
               ref=${popoverRef}
               class="popover-content"
@@ -1032,11 +1063,21 @@ function updateSystemPrompt(e) {
     }
 
     function App(props) {
-
       return html`
         <div class="mode-${session.value.type}">
           <header>
             <h2>llama.cpp</h2>
+            <div class="dropdown">
+              <button class="dropbtn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10" stroke-width="2"/></svg></button>
+              <div class="dropdown-content" id="theme-selector">
+                <a href="#" data-theme="default">Default</a>
+                <a href="#" data-theme="mangotango">Mango Tango</a>
+                <a href="#" data-theme="playground">Playground</a>
+                <a href="#" data-theme="polarnight">Polar Night</a>
+                <a href="#" data-theme="snowstorm">Snow Storm</a>
+                <a href="#" data-theme="beeninorder">Been In Order</a>
+              </div>
+            </div>
           </header>
 
           <main id="content">
@@ -1046,7 +1087,6 @@ function updateSystemPrompt(e) {
           <section id="write">
             <${session.value.type === 'chat' ? MessageInput : CompletionControls} />
           </section>
-
           <footer>
             <p><${ModelGenerationInfo} /></p>
             <p>Powered By <a href="https://github.com/ggerganov/llama.cpp#readme" target="_blank">llama.cpp</a> and <a href="https://ggml.ai/" target="_blank">ggml.ai</a></p>
@@ -1055,27 +1095,35 @@ function updateSystemPrompt(e) {
       `;
     }
 
-
-document.addEventListener('DOMContentLoaded', function() {
+  document.addEventListener('DOMContentLoaded', function() {
   var themeSelector = document.getElementById('theme-selector');
+  var themeLinks = themeSelector.querySelectorAll('a[data-theme]');
 
-  themeSelector.addEventListener('change', function(event) {
-    // remove all existing/defined theme classes
-    document.body.classList.remove('theme-default', 'theme-mangotango', 'theme-playground', 'theme-polarnight', 'theme-snowstorm', 'theme-been_in_order');
-    // add the selected theme class
-    var selectedTheme = event.target.value;
-    if (selectedTheme !== 'default') {
-      document.body.classList.add('theme-' + selectedTheme);
-    }
-    // save selection in local storage
-    localStorage.setItem('selected-theme', selectedTheme);
+  themeLinks.forEach(function(link) {
+    link.addEventListener('click', function(event) {
+      event.preventDefault(); // avoid default behaviour
+      var selectedTheme = event.target.getAttribute('data-theme');
+      changeTheme(selectedTheme);
+    });
   });
+
+  function changeTheme(theme) {
+    document.body.classList.remove('theme-default', 'theme-mangotango', 'theme-playground', 'theme-polarnight', 'theme-snowstorm', 'theme-beeninorder');
+    if (theme !== 'default') {
+      document.body.classList.add('theme-' + theme);
+    }
+    localStorage.setItem('selected-theme', theme);
+  }
 
   // set the selected theme when loading the page
   var savedTheme = localStorage.getItem('selected-theme');
   if (savedTheme && savedTheme !== 'default') {
     document.body.classList.add('theme-' + savedTheme);
-    themeSelector.value = savedTheme;
+    // update the dropdown if it still exists
+    var dropdown = document.getElementById('theme-selector-dropdown');
+    if (dropdown) {
+      dropdown.value = savedTheme;
+    }
   }
 });
 

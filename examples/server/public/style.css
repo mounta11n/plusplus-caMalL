@@ -13,6 +13,11 @@ body {
   transition: background-color 0.3s;
 }
 
+::selection {
+  color: var(--button-primary-text) ;
+  background: var(--button-primary-color);
+}
+
 code, pre code {
   font-family: 'Courier New', monospace;
 }
@@ -59,12 +64,32 @@ p {
   flex-direction: row;
   gap: 0.5em;
   justify-content: flex-end;
+  margin-bottom: 30px;
 }
 
 .two-columns {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1em;
+  position: relative;
+}
+
+.json-schema-controls {
+  margin-top: 10px;
+  width: 100%;
+  display: grid;
+  grid-template: "a a";
+  gap: 1em;
+  font-size: x-small;
+  color: var(--theme-nuance-color-3);
+  padding-top: 16px;
+  padding-bottom: 16px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.json-schema-controls > * {
+  flex: 1;
 }
 
 /* titles of the details-summary boxes */
@@ -112,6 +137,7 @@ fieldset.names {
 }
 
 fieldset.dropdowns {
+  -webkit-appearance: none;
   display: flex;
   grid-template: "a a";
   gap: 1em;
@@ -502,6 +528,7 @@ textarea#chat-input {
   padding-left: 10px;
   font-size: medium;
   border: 1px solid var(--border-color-2);
+  resize: vertical;
 }
 
 textarea#chat-input:focus {
@@ -602,16 +629,6 @@ textarea.persistent-input-sec:focus {
   min-height: 150px;
 }
 
-.json-schema-controls {
-  margin-top: 10px;
-  display: flex;
-  width: 100%;
-}
-
-.json-schema-controls > * {
-  flex: 1; /* Divides the available space evenly */
-}
-
 /* code area background */
 pre code {
   display: block;
@@ -639,8 +656,10 @@ fieldset label.slim {
   display: inline;
 }
 
-header,
-footer {
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   text-align: center;
 }
 
@@ -685,3 +704,113 @@ footer a:hover {
   background-image: linear-gradient(90deg, var(--loading-color-1), var(--loading-color-2), var(--loading-color-1));
   animation: loading-bg-wipe 2s linear infinite;
 }
+
+.dropbtn {
+  color: var(--button-primary-color);
+  background-color: var(--background-color-1);
+  border: 1px solid var(--background-color-1);
+  transition: background-color 0.1s;
+  border-radius: 4px 4px 0px 0px;
+  font-size: x-small;
+  font-weight: 600;
+  text-shadow: 0px 0px 2px #99999990;
+  text-align: center;
+  text-decoration: none;
+  margin: 4px 2px;
+  padding: 5px 20px;
+  display: inline-block;
+  cursor: pointer;
+  top: 0;
+}
+
+.dropbtn svg {
+  vertical-align: middle;
+  margin-right: 0px;
+  stroke: var(--button-primary-color);
+}
+
+.dropbtn:hover svg {
+  vertical-align: middle;
+  margin-right: 0px;
+  stroke: var(--button-primary-text);
+}
+
+.dropbtn:focus {
+  outline: none; /* Removes the blue border that appears when the button is focused */
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  /* display: none; */
+  position: absolute;
+  right: 0;
+  text-align: end;
+  color: var(--button-secondary-color);
+  background-color: var(--text-color-subtile-2);
+  border-radius: 4px 4px 4px 4px;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  /* Verstecke den Inhalt sofort */
+  opacity: 0;
+  visibility: hidden;
+  /* übergangsverzögerung für das Verschwinden */
+  transition: visibility 0.4s linear 0s, opacity 0.2s ease-in-out;
+  transition-delay: 0.2s;
+}
+
+#dropdown-content {transition-timing-function: ease;}
+
+.dropdown-content:hover {
+  background-color: var(--text-color-subtile-2);
+}
+
+.dropdown-content a {
+  color: var(--border-color-2);
+  padding: 12px 16px;
+  border-radius: 4px 4px 4px 4px;
+  text-decoration: none;
+  display: block;
+  background-color: var(--text-color-subtile-2);
+}
+
+.dropdown-content a:hover {
+  color: var(--border-color-2);
+  background-color: var(--text-color-subtile-1);
+  font-weight: 600;
+}
+
+.dropdown:hover .dropdown-content {
+  /* display: block; */
+  border-radius: 4px 4px 4px 4px;
+  /* Übergang ohne Verzögerung für das Erscheinen */
+  opacity: 1;
+  visibility: visible;
+  transition: visibility 0s linear 0s, opacity 0.1s linear, height 1s;
+}
+
+.dropdown:hover .dropbtn {
+  color: var(--button-primary-text);
+  background-color: var(--button-primary-color);
+  border: 1px solid var(--button-primary-border);
+  font-size: x-small;
+  font-weight: 600;
+  stroke: var(--button-primary-text);
+}
+
+.dropdown:hover .dropbtn svg{
+  stroke: var(--button-primary-text);
+}
+
+/* .dropdown:active .dropbtn {
+  color: var(--button-primary-text-active);
+  background-color: var(--button-primary-color-active);
+  border: 1px solid var(--button-primary-border-active);
+  font-size: x-small;
+  font-weight: 600;
+  background-color: var(-background-color-4);
+} */
