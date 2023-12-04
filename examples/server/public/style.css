@@ -98,6 +98,7 @@ p {
   font-size: x-small;
   color: var(--text-color-subtile-1);
   text-transform: uppercase;
+  /* transition: ; */
 }
 
 fieldset {
@@ -629,6 +630,14 @@ textarea.persistent-input-sec:focus {
 .persistent-input-sec {
   height: auto;
   min-height: 150px;
+}
+
+img {
+  border-radius: 8px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
 }
 
 /* code area background */
