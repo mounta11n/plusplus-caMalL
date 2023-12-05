@@ -83,6 +83,7 @@ qnt-*.txt
 perf-*.txt
 
 examples/jeopardy/results.txt
+exapmles/server/llama-OAI.sh
 
 poetry.lock
 poetry.toml
