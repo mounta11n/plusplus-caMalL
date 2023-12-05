@@ -108,3 +108,4 @@ _.DS_Store
 
 workspace
 workspace/*
+examples/server/llama-OAI.sh
