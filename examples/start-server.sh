@@ -127,6 +127,16 @@ model_selection() {
 # printf '%s\n' "${model_files[@]}"
 # echo "Menu arguments:"
 # for i in "${!model_files[@]}"; do echo "$((i+1))" "$(basename "${model_files[$i]}")"; done
+
+menu_options=()
+for i in "${!model_files[@]}"; do
+  menu_options+=("$((i+1))")
+  menu_options+=("$(basename "${model_files[$i]}")")
+done
+
+echo "Menu options array:"
+printf '%s\n' "${menu_options[@]}"
+
 ##### DEBUG
 
 
