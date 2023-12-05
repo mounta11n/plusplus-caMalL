@@ -120,12 +120,13 @@ model_selection() {
     return
   fi
 
+# for i in "${!model_files[@]}"; do echo "$((i+1))" "$(basename "${model_files[$i]}")"; done
 
 ##### DEBUG
-echo "Model files found:"
-printf '%s\n' "${model_files[@]}"
-echo "Menu arguments:"
-for i in "${!model_files[@]}"; do echo "$((i+1))" "$(basename "${model_files[$i]}")"; done
+# echo "Model files found:"
+# printf '%s\n' "${model_files[@]}"
+# echo "Menu arguments:"
+# for i in "${!model_files[@]}"; do echo "$((i+1))" "$(basename "${model_files[$i]}")"; done
 ##### DEBUG
 
 
