@@ -82,6 +82,17 @@ model_selection_warning() {
   dialog --title "Note" --msgbox "\n\n\nPlease note!\n\nTo navigate to a folder, please press the space bar twice. To return to a higher-level folder, press the Backspace key.\n\n\nAlternatively, you can also enter the desired path manually in the lower path field. \n\n\nOnly confirm your selection with the Enter key once you have selected the file – or the desired folder to be searched recursively." $DIALOG_HEIGHT $DIALOG_WIDTH
 }
 
+##### DEBUG
+menu_options=()
+for i in "${!model_files[@]}"; do
+  menu_options+=("$((i+1))")
+  menu_options+=("$(basename "${model_files[$i]}")")
+done
+
+echo "Menu options array:"
+printf '%s\n' "${menu_options[@]}"
+##### DEBUG
+
 model_selection() {
   # User selects a file or folder
   exec 3>&1
@@ -127,16 +138,6 @@ model_selection() {
 # printf '%s\n' "${model_files[@]}"
 # echo "Menu arguments:"
 # for i in "${!model_files[@]}"; do echo "$((i+1))" "$(basename "${model_files[$i]}")"; done
-
-menu_options=()
-for i in "${!model_files[@]}"; do
-  menu_options+=("$((i+1))")
-  menu_options+=("$(basename "${model_files[$i]}")")
-done
-
-echo "Menu options array:"
-printf '%s\n' "${menu_options[@]}"
-
 ##### DEBUG
 
 
@@ -159,6 +160,16 @@ fi
 model_path=${model_files[$((model_choice-1))]}
 }
 
+##### DEBUG
+menu_options=()
+for i in "${!model_files[@]}"; do
+  menu_options+=("$((i+1))")
+  menu_options+=("$(basename "${model_files[$i]}")")
+done
+
+echo "Menu options array:"
+printf '%s\n' "${menu_options[@]}"
+##### DEBUG
 
 
 multimodal_model_selection() {
