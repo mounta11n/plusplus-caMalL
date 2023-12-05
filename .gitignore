@@ -104,3 +104,6 @@ tests/test-tokenizer-1-bpe
 ._.DS_Store
 _.DS_Store
 .DS_Store
+
+workspace
+workspace/*

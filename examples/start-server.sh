@@ -6,7 +6,7 @@ TERMINAL_WIDTH=$(tput cols)
 
 # Calculate a size for the dialog box as a percentage of the terminal to make sure it fits
 DIALOG_HEIGHT=$((TERMINAL_HEIGHT * 5 / 8)) # approx. golden ratio
-DIALOG_WIDTH=$((TERMINAL_WIDTH * 5 / 8)) # approx. golden ratio
+DIALOG_WIDTH=$((TERMINAL_WIDTH * 5 / 8))   # approx. golden ratio
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" &>/dev/null && pwd)"
 
