@@ -49,10 +49,15 @@
   <figcaption>The new default UI</figcaption>
 </figure>
 
+
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[![Server](https://github.com/ggerganov/llama.cpp/actions/workflows/server.yml/badge.svg?branch=master&event=schedule)](https://github.com/ggerganov/llama.cpp/actions/workflows/server.yml)
+[![Conan Center](https://shields.io/conan/v/llama-cpp)](https://conan.io/center/llama-cpp)
 <br>
 <br>
 <br>
 <br>
+
 
 <br>
 <br>
@@ -231,9 +236,11 @@ For those wishes I think I'll need some advices and help. Feel free to contact m
 <br>
 <br>
 
+
 <h3 align="left">Docs</h3>
 
 If you are looking for support, I would recommend to referr to the original llama.cpp, with first considering the following:
+
 
 - [General Guide](https://github.com/ggerganov/llama.cpp#readme/)
 - [main](./examples/main/README.md)

@@ -18,8 +18,8 @@
 
     import { llama } from '/completion.js';
     import { SchemaConverter } from '/json-schema-to-grammar.mjs';
-    import { promptFormats } from './promptFormats.js';
-    import { systemPrompts } from './EN_systemPrompts.js'; // multilingual is wip
+    import { promptFormats } from './prompt-formats.js';
+    import { systemPrompts } from './system-prompts.js'; // multilingual is wip
     let selected_image = false;
     var slot_id = -1;
 
@@ -1067,7 +1067,7 @@ return html`
             <div class="dropdown">
               <button class="dropbtn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10" stroke-width="2"/></svg></button>
               <div class="dropdown-content" id="theme-selector">
-                <a href="index.html">Old UI</a>
+                <a href="/">Old UI</a>
                 <a href="#" data-theme="default">Snow Storm</a>
                 <a href="#" data-theme="polarnight">Polar Night</a>
                 <a href="#" data-theme="ketivah">Ketivah</a>
