@@ -127,3 +127,4 @@ nppBackup
 /tests/test-tokenizer-1-bpe
 /tests/test-rope
 /tests/test-backend-ops
+.directory
